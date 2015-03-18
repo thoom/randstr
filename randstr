@@ -1,0 +1,58 @@
+#! /usr/bin/env ruby
+
+require 'securerandom'
+
+def randstr(len: 0, type: nil, cust: [])
+  num = (48..57).to_a
+  upper = (65..90).to_a
+  lower = (97..122).to_a
+
+  case type
+  when 'alpha'
+    range = upper + lower
+  when 'upper'
+    range = upper
+  when 'upnum'
+    range = num + upper
+  when 'lower'
+    range = lower
+  when 'lownum'
+    range = num + lower
+  when 'num'
+    range = num
+  when 'cust'
+    range = cust
+  else
+    range = num + upper + lower
+  end
+
+  # pulled from http://codereview.stackexchange.com/questions/15958
+  if type == 'cust'
+    ([nil] * len).map { range.sample }.join
+  else
+    ([nil] * len).map { range.sample.chr }.join
+  end
+end
+
+if __FILE__ == $0
+  len = ARGV[0] || '32'
+  type = ARGV[1] || 'alnum'
+
+  if len == 'uuid'
+    result = SecureRandom.uuid
+  else
+    len = len.to_i
+    if type == 'hex'
+      result = SecureRandom.hex(len  / 2)
+    elsif type == 'cust'
+      split = ARGV[3] || ','
+      cust = ARGV[2] ? ARGV[2].split(split) : []
+
+      result = randstr(len: len, type: type, cust: cust)
+    else
+      result = randstr(len: len, type: type)
+    end
+  end
+
+  puts result
+end
