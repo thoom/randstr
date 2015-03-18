@@ -1,6 +1,9 @@
 # randstr
 Random string command line script
 
+## 
+
+
 ## Standard Usage
 
 	randstr [string length] [type]
