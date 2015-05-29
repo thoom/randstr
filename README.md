@@ -1,11 +1,15 @@
-# randstr
+# Thoom::Strandom
 Random string command line script
+
+## Installation
+
+    gem install strandom
 
 ## CLI HELP 
 
-	Usage: randstr [options]
+    Usage: strandom [options]
 
-	Specific options:
+    Specific options:
 	        --alnum  [length]            Characters a-z, A-Z, 0-9
 	        --alpha  [length]            Characters a-z, A-Z
 	        --custom values,[length],[delimiter]
@@ -18,29 +22,29 @@ Random string command line script
 	        --upper  [length]            Characters A-Z
 	        --upnum  [length]            Characters A-Z, 0-9
 	
-	Common options:
+    Common options:
 	        --help                       Shows this message
 	        --version                    Current version
 
 ### Examples
 #### Basic
 
-	$ randstr --lownum 10
-	=> eh8zuzk71s 
+    $ strandom --lownum 10
+    => eh8zuzk71s 
 
 #### UUID
 
-	$ randstr --uuid
-	=> 89657eaf-4e07-43a7-b3de-b7d1f3c26940
+    $ strandom --uuid
+    => 89657eaf-4e07-43a7-b3de-b7d1f3c26940
 
 #### Custom
 
-	randstr --custom [String of values to randomize],[length of string],[String delimiter, defaults to single character]
+    strandom --custom [String of values to randomize],[length of string],[String delimiter, defaults to single character]
 
 Examples:
 
-	$ randstr --custom "%4*?",10 
-	=> *%44*?%4**
+    $ strandom --custom "%4*?",10 
+    => *%44*?%4**
 	
-	$ randstr --custom "%|4|*|,|?",10,"|"
-	=> ??4,%%,*%4
+    $ strandom --custom "%|4|*|,|?",10,"|"
+    => ??4,%%,*%4
