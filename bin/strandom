@@ -10,8 +10,8 @@ cust_delimiter = ''
 
 parser = OptionParser.new do |o|
   o.banner = 'Usage: strandom [options]'
-  o.separator ""
-  o.separator "Specific options:"
+  o.separator ''
+  o.separator 'Specific options:'
 
   o.on('--alnum  [length]', 'Characters a-z, A-Z, 0-9') do |length|
     type = :alnum
@@ -67,8 +67,8 @@ parser = OptionParser.new do |o|
     len = length if length
   end
 
-  o.separator ""
-  o.separator "Common options:"
+  o.separator ''
+  o.separator 'Common options:'
 
   o.on_tail('--help', 'Shows this message') do
     puts o
@@ -78,10 +78,10 @@ parser = OptionParser.new do |o|
   o.on_tail('--version', 'Current version') do
     puts <<TXT
 
-Thoom Strandom v.1.0
---------------------
+Thoom Strandom v. 2.0
+---------------------
 e: zdp@thoomtech.com
-w: https://github.com/thoom/randstr
+w: https://github.com/thoom/strandom
 
 TXT
     exit
@@ -91,16 +91,28 @@ end
 parser.parse! ARGV
 
 len = len.to_i
-if type == :hex
-  result = Thoom::Strandom.hex(len: len)
-elsif type == :uuid
-  result = Thoom::Strandom.uuid()
-elsif type == :custom
-  cust = cust_vals.split(cust_delimiter)
-  result = Thoom::Strandom.rand(len: len, type: type, cust: cust)
-else
-  result = Thoom::Strandom.rand(len: len, type: type)
-end
+result = case type
+         when :alpha
+           Thoom::Strandom.alphabetic(len)
+         when :alnum
+           Thoom::Strandom.alphanumeric(len)
+         when :custom
+           cust = cust_vals.split(cust_delimiter)
+           Thoom::Strandom.custom(len: len, values: cust)
+         when :hex
+           Thoom::Strandom.hex(len)
+         when :num
+           Thoom::Strandom.numeric(len)
+         when :lower
+           Thoom::Strandom.lower_alphabetic(len)
+         when :lownum
+           Thoom::Strandom.lower_alphanumeric(len)
+         when :upper
+           Thoom::Strandom.upper_alphabetic(len)
+         when :upnum
+           Thoom::Strandom.upper_alphanumeric(len)
+         when :uuid
+           Thoom::Strandom.uuid
+         end
 
 puts result
-

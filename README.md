@@ -1,11 +1,14 @@
-# Thoom::Strandom
-Random string command line script
+Thoom::Strandom
+===============
+A Ruby library and cli for generating random strings
 
-## Installation
+Installation
+------------
 
     gem install strandom
 
-## CLI HELP 
+CLI Help 
+--------
 
     Usage: strandom [options]
 
@@ -26,7 +29,9 @@ Random string command line script
 	        --help                       Shows this message
 	        --version                    Current version
 
-### Examples
+Examples
+--------
+
 #### Basic
 
     $ strandom --lownum 10
@@ -48,3 +53,18 @@ Examples:
 	
     $ strandom --custom "%|4|*|,|?",10,"|"
     => ??4,%%,*%4
+		
+License
+-------
+
+Licensed under [MIT](https://github.com/thoom/strandom/blob/master/LICENSE).
+
+ChangeLog
+---------
+
+#### 2.0
+Fixes Issues [#1](https://github.com/thoom/strandom/issues/1) and [#2](https://github.com/thoom/strandom/issues/2).
+Complete refactor of the library class.
+Added unit tests.
+
+
