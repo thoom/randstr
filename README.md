@@ -5,7 +5,27 @@ A Ruby library and cli for generating random strings
 Installation
 ------------
 
+### Gemfile
+
+For convenience, the executable and class are available as a gem on RubyGems.
+
     gem install strandom
+		
+### Docker
+
+The client is also available as a Docker image. 
+To install:
+
+		docker pull thoom/strandom
+
+To run:
+
+		docker run --rm thoom/strandom strandom
+		
+A sample shell script `strandom`:
+
+		#!/bin/bash
+		docker run --rm thoom/strandom strandom "@"
 
 CLI Help 
 --------
