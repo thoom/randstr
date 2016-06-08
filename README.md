@@ -71,8 +71,8 @@ Examples:
     $ strandom --custom "%4*?",10 
     => *%44*?%4**
 	
-    $ strandom --custom "%|4|*|,|?",10,"|"
-    => ??4,%%,*%4
+    $ strandom --custom "[jeep]|[truck]|[sedan]|[SUV]",10,"|"
+    => [truck][sedan][SUV][truck][SUV][SUV][jeep][truck][SUV][SUV]
 		
 License
 -------
