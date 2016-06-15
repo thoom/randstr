@@ -20,12 +20,12 @@ To install:
 
 To run:
 
-	docker run --rm thoom/strandom strandom
+	docker run --rm thoom/strandom
 	
 A sample shell script `strandom`:
 
 	#!/bin/bash
-	docker run --rm thoom/strandom strandom "@"
+	docker run --rm thoom/strandom "@"
 
 CLI Help 
 --------
