@@ -1,8 +1,9 @@
 FROM ruby:alpine
+MAINTAINER Z.d. Peacock <zdp@thoomtech.com>
 
-COPY ["Gemfile", "Gemfile.lock", "/usr/src/app/"]
+COPY ["Gemfile", "Gemfile.lock", "/src/"]
 
-WORKDIR /usr/src/app/
+WORKDIR /src/
 
 RUN bundle install
 
