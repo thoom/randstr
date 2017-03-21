@@ -1,5 +1,7 @@
 Thoom::Strandom
 ===============
+[![Gem Version](https://badge.fury.io/rb/strandom.svg)](https://badge.fury.io/rb/strandom) [![Build Status](https://travis-ci.org/thoom/strandom.svg?branch=master)](https://travis-ci.org/thoom/strandom)
+
 A Ruby library and cli for generating random strings
 
 Installation
